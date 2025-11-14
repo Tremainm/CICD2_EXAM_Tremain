@@ -19,7 +19,7 @@ class OrderDB(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     order_number: Mapped[int] = mapped_column(unique=True, nullable=False)
     total_cents: Mapped[int] = mapped_column(Integer, nullable=False)
-    customer_id: Mapped[int] = mapped_column(ForeignKey("customer_id", ondelete="CASCADE"), nullable=False)
+    owner_id: Mapped[int] = mapped_column(ForeignKey("customer_id", ondelete="CASCADE"), nullable=False)
     owner: Mapped["CustomerDB"] = relationship(back_populates="orders")
 
 
