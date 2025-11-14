@@ -3,7 +3,7 @@ from pydantic import BaseModel, EmailStr, Field, StringConstraints, ConfigDict
 from annotated_types import Ge, Le
 
 NameStr = Annotated[str, StringConstraints(min_length=1, max_length=100)]
-CustomerSinceInt = Annotated[int, Ge(2000), Le(2010)]
+CustomerSinceInt = Annotated[int, Ge(2000), Le(2100)]
 
 OrderNumStr = Annotated[str, StringConstraints(min_length=3, max_length=20)]
 TotalCentsInt = Annotated[int, Ge(1), Le(1000000)]

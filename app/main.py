@@ -68,7 +68,7 @@ def get_customer(customer_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Customer not found")
     return customer
 
-@app.put("/api/customer/{customer_id}", response_model=CustomerRead, status_code=status.HTTP_202_ACCEPTED)
+@app.put("/api/customers/{customer_id}", response_model=CustomerRead, status_code=status.HTTP_202_ACCEPTED)
 def update_customer(customer_id: int, payload=CustomerCreate, db: Session = Depends(get_db)):
     customer = db.get(CustomerDB, customer_id)
     if not customer:
@@ -81,7 +81,7 @@ def update_customer(customer_id: int, payload=CustomerCreate, db: Session = Depe
     db.refresh(customer)
     return customer
 
-@app.patch("/api/customer/{customer_id}", response_model=CustomerRead, status_code=status.HTTP_202_ACCEPTED)
+@app.patch("/api/customers/{customer_id}", response_model=CustomerRead, status_code=status.HTTP_202_ACCEPTED)
 def update_customer(customer_id: int, payload=CustomerPatch, db: Session = Depends(get_db)):
     customer = db.get(CustomerDB, customer_id)
     if not customer:
